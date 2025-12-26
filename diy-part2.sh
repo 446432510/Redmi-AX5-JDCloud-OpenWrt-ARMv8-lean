@@ -18,3 +18,14 @@
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+
+
+# 1. 进入 OpenWrt 源码的 package 目录
+cd $GITHUB_WORKSPACE/openwrt/package
+
+# 2. 克隆 qosmate 源码到 package 下（命名为 luci-app-qosmate 便于识别）
+git clone https://github.com/hudra0/qosmate.git luci-app-qosmate
+
+# 3. （可选）若 qosmate 依赖其他包，添加依赖（如 luci 基础库，一般已包含）
+# sed -i '$a CONFIG_PACKAGE_luci-compat=y' ../.config
+
